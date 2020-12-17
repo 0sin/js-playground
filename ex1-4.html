@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h1>입력하신 문자는</h1>
+  <h2 id="h2"></h2>
+  
+  <script>
+    let text = prompt("문자를 입력해주세요.")
+
+    console.log(text);
+
+    document.getElementById('h2').innerHTML = text.length + "자 입니다.";
+  </script>
+</body>
+</html>
