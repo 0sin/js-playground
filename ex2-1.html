@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>입력받은 문자는</title>
+</head>
+<body>
+  <h2 id="h2"></h2>
+  <script>
+    /* 
+    let str = prompt("숫자를 입력하세요.");
+    let n = Number(str);
+    */
+    let n = Number(prompt("숫자를 입력해 주세요."))
+    const h2 = document.getElementById('h2');
+
+    if (n % 2 === 0) {
+      h2.innerHTML = n + "은(는) 짝수입니다."
+    } else {
+      h2.innerHTML = n + "은(는) 홀수입니다."
+    }
+  </script>
+  
+</body>
+</html>
