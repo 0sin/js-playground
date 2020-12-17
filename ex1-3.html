@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h1>섭씨를 화씨로 바꿉니다.</h1>
+  <h2 id="h2"></h2>
+  
+  <script>
+    const c = prompt("섭씨 온도를 입력해주세요.")
+
+    let numC = Number(c);
+    let f = (numC * 1.8) + 32;
+
+    console.log(c);
+    console.log(f);
+
+    document.getElementById('h2').innerHTML = "화씨 온도는 " + f + " 입니다.";
+  </script>
+</body>
+</html>
