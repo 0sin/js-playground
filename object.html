@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h3 id="result"></h3>
+
+
+
+
+  <script>
+//     *this
+// var p2 = {};
+// p2.name = “0sin”;
+// p2.weight = 100;
+// p2.eat = function(food) {
+// 	console.log(this.name + "이 " + food + "를 먹었습니다."); //p2.name으로 가져올수 없기 때문에!
+// 	p2.weight += 1;
+// }
+
+// p2.eat(“pizza”); //0sin이 pizza를 먹었습니다.
+// p2.weight = 101;
+
+
+// var m1 = {
+// 	"name": "0sin",
+// 	"hp": 100,
+//     	"power": 20,
+//     	"attack": function(target) {target.hp -= this.power;}	
+// } ;
+
+
+
+//연습문제: 2~10000 사이의 소수를 화면에 출력하는 프로그램을 작성해 봅시다.
+
+let numbers = {}; //numbers 객체
+
+numbers.all = []; //모든 숫자가 들어간 배열
+numbers.prime = []; //소수만 들어간 배열
+
+numbers.addAllNumber = function(max_num) { //1.addAllNumber number.all에 숫자 다 넣기 : 통과
+  for (let i = 2; i <= max_num; i++) {
+    this.all.push(i);
+  }
+}; 
+
+numbers.isPrime = function(number) { //2.소수인지 아닌지 판별하기 true false 리턴
+  for (let i = 2; i < number; i++) {
+    if (number % i == 0) { 
+      return false; //소수 아님
+    } 
+  }
+  return true; // else를 써줄필요 없이 for문 바깥에서 바로 true로 반환하기! for문 안으로 들어가면 짝홀 판별식됨... CHECK 
+}; 
+
+numbers.calcPrimes = function() { //3.소수를 number.prime에 넣기
+  for (let i = 0; i < this.all.length; i++) {
+    var n = this.all[i]; //this.all[i]를 변수선언 해줬어야함! CHECK
+
+    if (this.isPrime(n)) {
+      this.prime.push(n);
+    }
+  }
+}; 
+
+numbers.getAllPrimes = function() { //4.소수를 문자열로 바꿔서 화면에 띄우기
+  let ret = "";
+  ret += "<h2>전체 소수의 갯수: " + this.prime.length + "</h2>";
+  for (let i = 0; i < this.prime.length; i++) {
+    ret += (i+1) + "번째 소수: " +this.prime[i] + "<br>";
+  }
+  return ret;
+}; 
+
+
+
+numbers.addAllNumber(10000); //통과
+numbers.calcPrimes();
+document.getElementById('result').innerHTML = numbers.getAllPrimes();
+
+  </script>
+  
+</body>
+</html>
