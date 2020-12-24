@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>gugudan | function</title>
+</head>
+<body>
+  <h1>구구단 전체 출력 | 함수 사용</h1>
+
+  <script>
+    function calculate(x) {
+      var results = [];
+        for (var i = 1; i < 10; i++) {
+        results.push(x * i);
+        }
+        return results; //구구단 2단의 배열상태를 출력
+      }
+      
+      
+    function print(x, ret) {
+      document.write("<h2>" + x + "단</h2>")
+      console.log(ret) //콘솔에 2단 출력
+      for (var j = 1; j < 10; j++) {
+        var y = x * j;
+        document.write(x + " X " + j + "=" + y + "<br>")
+      }
+    }
+      
+    function main() { // 1. 맨 처음 작성.
+      for (var n = 2; n < 10; n++) { //2단 부터 출력. 
+          var result = calculate(n); //2단을 출력한 결과를 result에 저장
+          print(n, result); //2, 2단결과가 나올예정
+      } 
+    }
+    main();
+    
+
+  </script>
+  
+</body>
+</html>
