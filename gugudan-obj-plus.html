@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>gugudan | object2</title>
+</head>
+<body>
+  <h1>구구단 전체 출력 | 응용</h1>
+  
+
+  <script>
+    
+    let num1 = Number(prompt('첫번째 숫자를 입력하세요'));
+    let num2 = Number(prompt('두번째 숫자를 입력하세요'));
+
+    function gugudan(x, y) {
+      document.write('<h2>' + x + '곱하기 ' + y + ' 까지는 <br></h2>')
+      for(let i=2; i<=x; i++) {
+        document.write('<h3>' + i + '단 출력 <br></h3>')
+        for(let k=1; k<=y; k++) {
+          document.write(i + " X " + k + " = " + (i * k) + '<br>');
+        }
+      }
+    } 
+
+    gugudan(num1, num2);
+
+    
+    console.log(num1);
+    console.log(num2);
+
+  </script>
+  
+</body>
+</html>
