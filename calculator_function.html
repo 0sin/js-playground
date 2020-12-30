@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>계산기 만들기</title>
+</head>
+<body>
+  <h1>계산기 만들기 | Loop</h1>
+  <h2 id="answer">계산결과</h2>
+  
+
+
+  <script>
+
+    function getFirstValue() {
+      let firstNum = Number(prompt('첫번째 숫자를 입력해주세요.'));
+      return firstNum;
+    }
+
+    let n = 2;
+    function getSecondValue() {
+      let num2 = Number(prompt( n + '번째 숫자를 입력해주세요.'));
+      n++
+      return num2;
+    }
+
+    function getOperator() {
+      let op = prompt('연산자를 입력해주세요. 멈추려면 q를 입력하세요.');
+      while(true) {
+        if (op === '+' || op === '-' || op === '*' || op === '/' || op === 'q') {
+          break;
+        } else {
+          alert('올바른 연산자를 입력해주세요.');
+        }
+      }
+      return op;
+    }
+
+
+    function calculate(first, second, op) {
+      var ret;
+
+      switch(op) {
+        case "+":
+          ret = first + second;
+          break;
+        case "-":
+          ret = first - second;
+          break;
+        case "*":
+          ret = first * second;
+          break;
+        case "/":
+          ret = first / second;
+          break;
+      }
+      return ret;
+    }
+
+    function print(value) {
+      return "최종 결과 값은 " + value + "입니다.";
+    }
+    
+
+    function main() {
+      var result = getFirstValue();
+
+      while(true) {
+        var op = getOperator();
+        if (op === 'q') {
+          break;
+        }
+        var num = getSecondValue();
+        result = calculate(result, num, op);
+      }
+
+      let answer = document.getElementById('answer');
+      answer.innerHTML = print(result);
+    }
+    main();
+
+
+  </script>
+  
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>계산기 만들기</h1>
+  <div>
+    입력값1: <input type="text" id="input1"><br>
+    입력값2: <input type="text" id="input2"><br>
+    사칙연산: <input type="text" id="input3"><br>
+    <button id="btn" onclick="calc()">확인</button>
+  </div>
+  <h2 id="result">계산결과</h2>
+  <p id="addition"></p>
+  <p id="subtraction"></p>
+  <p id="multiplication"></p>
+  <p id="division"></p>
+
+
+
+  <script>
+    // var btn1 = document.getElementById('btn');
+    // var addition = document.getElementById('addition');
+    // var subtraction = document.getElementById('subtraction');
+    // var multiplication = document.getElementById('multiplication');
+    // var division = document.getElementById('division');
+    
+    function calc() {
+      var input1Value = document.getElementById('input1').value;
+      var input2Value = document.getElementById('input2').value;
+      var input3Value = document.getElementById('input3').value;
+      var x = Number(input1Value);
+      var y = Number(input2Value);
+      console.log(x);
+      console.log(y);
+      console.log(input3Value);
+      
+      var result = document.getElementById('result');
+
+      if (input3Value === "+") {
+        result.innerHTML = "덧셈: " + (x + y);
+      }
+      else if (input3Value === "-") {
+        result.innerHTML = "뺄셈: " + (x - y);
+      }
+      else if (input3Value === "*") {
+        result.innerHTML = "곱셈: " + (x * y);
+      }
+      else if (input3Value === "/") {
+        result.innerHTML = "나눗셈: " + (x / y);
+      } else {
+        result.innerHTML = "사칙연산 기호가 아닙니다. 다시 입력해주세요.";
+      }
+
+    }
+
+
+
+
+  </script>
+  
+</body>
+</html>
