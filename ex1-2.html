@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h1>BMI를 계산합니다.</h1>
+  <h2 id="h2"></h2>
+
+  <script>
+    const weight = prompt("체중을 입력해주세요. 단위는 kg 입니다.")
+    const height = prompt("키를 입력해주세요. 단위는 cm 입니다.")
+
+    let numWeight = Number(weight);
+    let numHeight = Number(height) / 100;
+    let bmi = numWeight / (numHeight * numHeight);
+
+    console.log(numWeight);
+    console.log(numHeight);
+    console.log(bmi);
+
+    document.getElementById('h2').innerHTML = "당신의 BMI 지수는 " + Math.floor(bmi, 2) + " 입니다.";
+  </script>
+</body>
+</html> 
