@@ -838,7 +838,147 @@
   </div>
 
   <!-- 4. 구구단 구현 2 -->
-  <div class="chapter"><h2>4. 구구단 구현 2</h2></div>
+  <div class="chapter">
+    <h2>4. 구구단 구현 2</h2>
+    <h3>2단: 배열로 구구단 다시 구현</h3>
+    <p>구구단 결과을 배열에 저장한 후 배열의 결과를 출력한다.</p>
+    <script>
+      var gugu2Again = [];
+      var length = 9;
+      for(var i=1; i <= length; i++) {
+          // 계산 결과를 배열에 저장
+          gugu2Again.push(2 * i);
+      };
+
+      for(var i=1; i <= length; i++) {
+          // 배열의 내용을 출력 
+          console.log("2 * "+ i + " = " + gugu2Again[i-1]);
+      };
+    </script>
+
+    <br><br>
+    <h3>구구단 전체 배열로 출력</h3>
+    <p>이중 루프로 구현</p>
+    <script>
+      let guguAllAgain = [];
+      let length = 9;
+
+      for (let n=2; n <= length; n++) {
+          // calculeate
+        for(let i=1; i <= length; i++) {
+            // 계산 결과를 배열에 저장
+            guguAllAgain[i] = n * i; 
+        };
+
+        document.write(n + "단 출력하기<br>");
+        // print
+        for(let i=1; i <= length; i++) {
+            // 배열의 내용을 출력
+            let str = "";
+            str += n;
+            str += " * ";
+            str += i;
+            str += " = ";
+            str += guguAllAgain[i];
+            str += "<br>";
+            document.write(str);
+        };
+      }
+      console.log(guguAllAgain); //guguAllAgain[0]은 empty
+    </script>
+
+    <br><br>
+    <h3>함수를 활용해 구구단을 구현</h3>
+    <p>함수를 활용해 반복적으로 발생하는 코드를 줄인다.</p>
+    <p>공부를 위해 메인함수를 사용해 본다: 전역변수 사용을 줄일수 있다.</p>
+    <script>
+      // 숫자 num을 넣으면 num 구구단 값을 배열로 갖는 함수
+      function calculrate(num) {
+        var ret = [];
+        for (var i = 1; i <= 9; i++) {
+          // 계산 결과를 배열에 저장
+          ret[i-1] = num * i;
+        }
+        return ret;
+      }
+
+      //num단의 결과 ret 배열을 출력하는 함수
+      function print(num, ret) {
+        // 계산 결과를 화면에 출력
+        document.write("<p>" + num + "단</p>");
+        for (let i=1; i<=9; i++) {
+          document.write(`${num} X ${i} = ${ret[i-1]} <br>`);
+        }
+      }
+
+      function main() {
+        // 나머지 코드들은 여기에
+        for (let n=2; n<=9; n++) { 
+          // let result = calculrate(n); 
+          // print(n, result);
+          print(n, calculrate(n));
+        }
+      }
+      main();
+    </script>
+
+    <br><br>
+    <h3>객체와 메소드를 사용해서 구구단을 구현</h3>
+    <p>main() 메소드는 프로그램을 시작하는 역할을 한다.</p>
+    <p>함수를 구구단 객체의 메소드로 변경한다.</p>
+    <script>
+      let guguFinal = {};
+      guguFinal.result = [];
+      guguFinal.currentNum = -1;
+
+      guguFinal.calculate = function(num) {
+        this.currentNum = num;
+        for (var i = 0; i < 9; i++) {
+          this.result[i] = num * (i + 1);
+        }
+      }
+
+      guguFinal.print = function() {
+        document.write("<p>" + this.currentNum + "단</p>");
+        for (let i = 0; i < 9; i++) {
+          document.write(`${this.currentNum} x ${i + 1} = ${this.result[i]} <br>`);
+        }
+      }
+
+
+      function main2() {
+        for (let i = 2; i <= 9; i++) { 
+          guguFinal.calculate(i);
+          guguFinal.print();
+        }
+      }
+
+      main2();
+      console.log(guguFinal);
+    </script>
+
+    <br><br>
+    <h3>추가미션</h3>
+    <p>ex) 팔칠단</p>
+    <p>첫번째 숫자 입력: <input type="text" id="guguInput1"></p>
+    <p>두번째 숫자 입력: <input type="text" id="guguInput2"></p>
+    <button id="guguPlusButton">확인</button>
+    <script>
+      let guguPlusButton = document.getElementById('guguPlusButton');
+      guguPlusButton.addEventListener('click', main3);
+
+      function main3() {
+        let num1 = Number(document.getElementById('guguInput1').value);
+        let num2 = Number(document.getElementById('guguInput2').value);
+
+        document.write(`<b>${num1} X ${num2} 단 구현하기</b><br>`)
+        for (let i = 1; i <= num2; i++) {
+          document.write(`${num1} X ${i} = ${num1 * i}<br>`);
+        }
+      }
+    </script>
+
+  </div>
 
   <!-- 5. 계산기 준비 -->
   <div class="chapter"><h2>5. 계산기 준비</h2></div>
@@ -847,7 +987,7 @@
   <div class="chapter"><h2>6. 계산기 구현</h2></div>
 
 
-  <>
+  <script>
     const chapter = document.querySelectorAll('.chapter')
     const idx = document.querySelectorAll('.idx')
 
@@ -855,7 +995,7 @@
       chapter.forEach(e => e.style.display = "none");
       chapter[i].style.display = "block";
     }));
-  </>
+  </script>
 
 </body>
 </html>
